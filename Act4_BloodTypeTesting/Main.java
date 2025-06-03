@@ -54,7 +54,9 @@ public class Main {
                         System.out.println("Wrong Input");
                         break;
                 }
+                
                 System.out.println();
+
             } catch(NumberFormatException e){
                 System.err.println("Invalid number format! Try again!");
                 i--;
