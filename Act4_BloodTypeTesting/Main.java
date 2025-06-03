@@ -54,7 +54,7 @@ public class Main {
                     break;
             }
             System.out.println();
-        }
+        } scan.close();
 
         for(BloodType humans : human){
             humans.printDetails();
