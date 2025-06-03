@@ -1,5 +1,4 @@
 package Act3_CompanyDetails;
-//package Activity3;
 import java.util.Scanner;
 
 public class Main {
