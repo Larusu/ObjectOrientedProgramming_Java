@@ -1,14 +1,7 @@
 package Act6_EmployeeRegistration;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import java.util.ArrayList;
-
-import javax.swing.JComponent;
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 
 public class Employee extends Person implements Displayable{
     
@@ -18,39 +11,23 @@ public class Employee extends Person implements Displayable{
     String gender;
     int employeeID;
 
+    public final int maxHeight = 500;
+    public final int maxWidth = 500;
+
     JFrame frame = new JFrame();
-    Panel panel = new Panel();
+    BodyPanel bodypanel = new BodyPanel(maxWidth, maxHeight);
 
     @Override
     public void display(){
 
-        try{
-            
-            frame.setTitle("Employee Registration");
-            frame.setResizable(false);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            
-            frame.add(panel);
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
+        frame.setTitle("Employee Registration");
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        frame.add(bodypanel, BorderLayout.NORTH);
 
-        }catch(NumberFormatException e){
-
-            JOptionPane.showMessageDialog(frame, "Invalid Number Input!", "Warning", JOptionPane.WARNING_MESSAGE);
-        }
-    }
-
-    public void initializingData(){
-
-        name = ((JTextField) panel.getInputFields(0)).getText() + " " + ((JTextField) panel.getInputFields(1)).getText();
-        age = Integer.parseInt(((JTextField) panel.getInputFields(2)).getText());
-        gender = ((JTextField) panel.getInputFields(3)).getText();
-        contactDetails[0] = ((JTextField) panel.getInputFields(4)).getText();
-        contactDetails[1] = ((JTextField) panel.getInputFields(5)).getText();
-        department = ((JTextField) panel.getInputFields(6)).getText();
-        position = ((JTextField) panel.getInputFields(7)).getText();
-        employeeID = Integer.parseInt(((JTextField) panel.getInputFields(8)).getText());
-        salary = Integer.parseInt(((JTextField) panel.getInputFields(9)).getText());
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }
