@@ -17,12 +17,12 @@ import javax.swing.SwingConstants;
 
 public class Panel extends JPanel {
 
-    final int width = 500;
-    final int height = 500;
+    private final int width = 500;
+    private final int height = 500;
     
     Employee employee = new Employee();
-    JTextArea textArea;
-    ArrayList<JComponent> inputFields;
+    private JTextArea textArea;
+    private ArrayList<JComponent> inputFields;
 
     Panel(){
 
@@ -64,4 +64,7 @@ public class Panel extends JPanel {
         }
         return panel;
     }   
+    public JComponent getInputFields(int i) {
+        return inputFields.get(i);
+    }
 }

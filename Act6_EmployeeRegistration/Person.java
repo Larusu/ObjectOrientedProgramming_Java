@@ -4,9 +4,9 @@ public abstract class Person{
 
     String name;
     int age;
-    int contactDetails;
+    String[] contactDetails = new String[2];
 
-    public void setInfo(String name, int age, int contactDetails){
+    public void setInfo(String name, int age, String[] contactDetails){
         this.name = name;
         this.age = age;
         this.contactDetails = contactDetails;
