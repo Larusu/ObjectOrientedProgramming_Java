@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -21,12 +22,14 @@ public class Panel extends JPanel {
     
     Employee employee = new Employee();
     JTextArea textArea;
-    ArrayList<JTextField> inputFields;
+    ArrayList<JComponent> inputFields;
 
     Panel(){
 
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(width, height));
+
+        inputFields = new ArrayList<>();
         this.add(bodyPanel(), BorderLayout.NORTH);
     }
 
@@ -40,23 +43,22 @@ public class Panel extends JPanel {
         JLabel label;
         String[] labelStrings = {"First Name", "Last Name", "Age", "Gender", "Email",
                                 "Contact No.", "Department", "Position", "Employee ID", "Salary"};
-
-        JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(width / 2, 30));
-
         String[] genderList = {"Male", "Female", "Non-Binary"};
-        JComboBox<String> gender  = new JComboBox<>(genderList);
-        gender.setPreferredSize(new Dimension(width / 2, 30));
-
+        
         for(String strings : labelStrings){
             label = new JLabel(strings + ":");
             label.setHorizontalAlignment(SwingConstants.LEFT);
             panel.add(label);
 
             if(strings.equals("Gender")){
+                JComboBox<String> gender  = new JComboBox<>(genderList);
+                gender.setPreferredSize(new Dimension(width / 2, 30));
+                inputFields.add(gender);
                 panel.add(gender);
                 continue;
             }
+            JTextField textField = new JTextField();
+            textField.setPreferredSize(new Dimension(width / 2, 30));
             inputFields.add(textField);
             panel.add(textField);
         }
